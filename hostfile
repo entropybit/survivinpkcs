@@ -1,0 +1,4 @@
+cluster1 slots=16
+cluster2 slots=16
+cluster3 slots=16
+
