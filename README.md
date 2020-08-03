@@ -7,14 +7,17 @@ heterotetramer Survivin-DNA-PKcs complex in DNA double-strand break repair*
 (Submitted). 
 
 ## Dependencies.
-
+Theses are necessary to use all the scripts in the complete workflow described in 
+the next section. 
 - [GNU parallel](https://www.gnu.org/software/parallel)
 - [Rosetta Software Suite](https://www.rosettacommons.org/software)
+- PyMol
+- Gromacs 
+- [biotite](https://www.biotite-python.org/)
+
+Although it will be explicitly mentioned, which script needs which software.
 
 ## Modeling step by step.
-
-
-
 The basis for the here documented modeling steps were [1E31](https://www.rcsb.org/structure/1E31) for Survivin
 and [5LUQ](https://www.rcsb.org/structure/5LUQ) for the DNA-PKcs.
 After an initial loop modeling using [Modeller](https://salilab.org/modeller/) a closed structure can be found for the
