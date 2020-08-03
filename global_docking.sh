@@ -11,21 +11,13 @@ DOCK=docking_protocol.mpi.linuxgccrelease
 DOCK_DIMER=true
 DOCK_MONOMER=false
 
+#### DOCKING ####################################
 
-if ${DOCK_DIMER}; then
-    $RS_EXEC/$PREPACK -docking:partners BC_A -docking::sc_min -s $FOLDER/pk_mono_sur_di.pdb -database $RS_DATA
-    mkdir $FOLDER/sur_dimer
-    mv $FOLDER/pk_mono_sur_di_0001.pdb $FOLDER/sur_dimer/
-    cd $FOLDER/sur_dimer
-    mpiexec --hostfile $FOLDER/hostfile -n $NCORES $RS_EXEC/$DOCK -docking:partners BC_A -randomize1 -randomize2 -spin -dock_pert 3 8 -low_res_protocol_only -nstruct $N -native $FOLDER/pk_mono_sur_di.pdb -s $FOLDER/sur_dimer/pk_mono_sur_di_0001.pdb -database $RS_DATA -score:docking_interface_score 1
-    cd $FOLDER
-fi
+$RS_EXEC/$PREPACK -docking:partners BC_A -docking::sc_min -s $FOLDER/pk_mono_sur_di.pdb -database $RS_DATA
+mkdir $FOLDER/sur_dimer
+mv $FOLDER/pk_mono_sur_di_0001.pdb $FOLDER/sur_dimer/
+cd $FOLDER/sur_dimer
+mpiexec --hostfile $FOLDER/hostfile -n $NCORES $RS_EXEC/$DOCK -docking:partners BC_A -randomize1 -randomize2 -spin -dock_pert 3 8 -low_res_protocol_only -nstruct $N -native $FOLDER/pk_mono_sur_di.pdb -s $FOLDER/sur_dimer/pk_mono_sur_di_0001.pdb -database $RS_DATA -score:docking_interface_score 1
+cd $FOLDER
 
-if ${DOCK_MONOMER}; then
-    $RS_EXEC/$PREPACK -docking:partners C_A -docking::sc_min -s $FOLDER/pk_mono_sur_mono.pdb -database $RS_DATA
-    mkdir $FOLDER/sur_monomer
-    mv $FOLDER/pk_mono_sur_mono_0001.pdb $FOLDER/sur_monomer/
-    cd $FOLDER/sur_monomer
-    mpiexec --hostfile $FOLDER/hostfile -n $NCORES $RS_EXEC/$DOCK -docking:partners C_A -randomize1 -randomize2 -spin -dock_pert 3 8 -low_res_protocol_only -nstruct $N -native $FOLDER/pk_mono_sur_mono.pdb -s $FOLDER/sur_monomer/pk_mono_sur_mono_0001.pdb -database $RS_DATA -score:docking_interface_score 1
-    cd $FOLDER
-fi
+################################################
