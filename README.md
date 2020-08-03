@@ -40,7 +40,7 @@ In general the hostfile should look like this
 192.168.0.12 slots=64
 ...
 ```
-with the ips of the according nodes. Names can also be used as long as these can be resolved from each 
+with the ips of the according nodes. Hostnames can also be used as long as these can be resolved from each 
 single node.
 
 The global docking script generates a folder *sur_dimer* inside the working direcotry of the script.
