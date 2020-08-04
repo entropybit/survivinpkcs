@@ -13,6 +13,7 @@ the next section.
 - [Rosetta Software Suite](https://www.rosettacommons.org/software)
 - PyMol
 - Gromacs 
+- Python>=3.7
 - [biotite](https://www.biotite-python.org/)
 
 Although it will be explicitly mentioned, which script needs which software.
