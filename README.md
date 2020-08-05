@@ -95,7 +95,7 @@ chmod u+x refinement_docking.sh
 ```
 This is trivially parallelized over the files using gnu parallel and the results are stored in the new folder *dimer_refined*.
 
-### Packing pdbs in XTC file
+### Packing pdbs into an XTC file
 
 To efficiently calculate measures like the distance between the BIR and PI3K region, or the RMSD of between each found pose and our two initial ones,
 the resulting PDB files are packed into a XTC trajectory file. For this we wrote the 
@@ -122,3 +122,8 @@ or without it
 ```
 python pack_pdbs_to_xtc.py -i dimer_refined -o dimer_traj.xtc
 ```
+
+### Evaluation of BIR - PI3K distances.
+
+After producing the XTC file containing our refinement docking results, the BIR - PI3K distances can now be caluclated using the script [analyzse_xtcs.py](https://github.com/entropybit/survivinpkcs/blob/master/scripts/analyzse_xtcs.py). 
+This simply loads the whole trajectory into the memory and then calculates the min, max and mean distance between each single BIR residue and the PI3K active site residues. Following the informations given by uniprot, linked at the according PDB structure websites, the BIR domain is specified by residues 15 - 88 and the PI3K region is specified by residues 3747 - 4015. 
