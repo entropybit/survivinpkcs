@@ -15,6 +15,10 @@ the next section.
 - Gromacs 
 - Python>=3.7
 - [biotite](https://www.biotite-python.org/)
+- R >= 3.6.3 (for plotting only)
+- [tidyverse](https://www.tidyverse.org/) (for plotting only)
+- [ggsci](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html) (for plotting only)
+- [cowplot](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html) (for plotting only) 
 
 Although it will be explicitly mentioned, which script needs which software.
 
