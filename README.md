@@ -58,7 +58,7 @@ To overcome this and also to analyze the importance of the BIR region with a lar
 
 ### Protein-Protein Docking with Rosetta
 
-First we perforemd a global docking, which means that a complete uninformed docking is run where several positions of the *ligand* protein on the surface of the *receptor* protein are tried. This was done using our global_docking.sh skript which can simply be executed 
+First we perforemd a global docking, which means that a complete uninformed docking is run where several positions of the *ligand* protein on the surface of the *receptor* protein are tried. This was done using our (global_docking.sh)[https://github.com/entropybit/survivinpkcs/blob/master/scripts/global_docking.sh] script which can simply be executed 
 after making it executable:
 ```
 chmod u+x global_docking.sh
@@ -85,11 +85,40 @@ single node.
 The global docking script generates a folder *sur_dimer* inside the working direcotry of the script.
 Inside this folder all the resulting structures from the global docking are stored. As the global 
 docking uses a rough backbone protocoll these structures do not have sidechains for the mobile structure.
+
 To remedy that, and also to increase the resolution of the docking overall a local refinement docking
-is done for every single one of these structures. Simliar to global docking there is a script for
+is done for every single one of these structures. Simliar to global docking there is a (script)[https://github.com/entropybit/survivinpkcs/blob/master/scripts/refinement_docking.sh] for
 this task in the repo. So one can simply do
 ```
 chmod u+x refinement_docking.sh
 ./refinement_docking.sh
 ```
 This is trivially parallelized over the files using gnu parallel and the results are stored in the new folder *dimer_refined*.
+
+### Packing pdbs in XTC file
+
+To efficiently calculate measures like the distance between the BIR and PI3K region, or the RMSD of between each found pose and our two initial ones,
+the resulting PDB files are packed into a XTC trajectory file. For this we wrote the 
+(pack_pdbs_to_xtc.py)[https://github.com/entropybit/survivinpkcs/blob/master/scripts/pack_pdbs_to_xtc.py] python script. 
+This script either builds the trajectory based on the order in which the pdbs are found in the folder, or by the order inside the *score.sc* file produced by Rosetta, which is stored in the same directory. Calling the script with the --help flag will produce a minimal documentation:
+
+```
+usage: convert pdb files in directory or tar archive into xtc file.
+       [-h] [-i I] [-o O] [-sc SC]
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -i I
+  -o O
+  -sc SC
+
+```
+
+So in our cases useages would be either with the score.sc 
+```
+python pack_pdbs_to_xtc.py -i dimer_refined -sc dimer_refined/score.sc -o dimer_traj.xtc
+```
+or without it
+```
+python pack_pdbs_to_xtc.py -i dimer_refined -o dimer_traj.xtc
+```
