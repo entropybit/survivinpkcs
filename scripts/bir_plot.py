@@ -87,7 +87,7 @@ cut_selector_good_triples = [
     
 # load scores with residue distances 
 scores = load_scores(
-    "dnapkcs_dimersscores.csv",  cut_selector,
+    "scores_extended.csv",  cut_selector,
     "contacts/"
     
 )
