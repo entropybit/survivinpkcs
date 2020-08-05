@@ -25,8 +25,12 @@ After an initial loop modeling using [Modeller](https://salilab.org/modeller/) a
 Kinase and FAT Domain of DNA-PKcs, which we called [head](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/pkcs_head.pdb) structure in the paper. As the other domains contain a large gap of missing structural information
 which can not be closed with loop modeling, only those two Domains were used as model for the DNA-PKcs.
 This was sufficient as investigating the interaction of Survivin with the PI3K region was aim of this work. 
-From perliminary docking with the Schrödinger suite, the best two poses were available.
-For these poses, we see very different positions of Survivin relative to its docking partner. 
+From perliminary docking with the Schrödinger suite, the best two poses were available, which are stored as [state1](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/state1.pdb) and [state2](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/state2.pdb).
+
+![Image of both poses](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/differing_states.png | width=800)
+
+For these poses, we see very different positions of Survivin relative to its docking partner, as can be seen in the above visualization
+where the head structures where aligend in PyMol.
 However, mutational studies on the Survivin residues being closest to the PI3K region, showed that exactly
 these two poses are important for the binding. 
 Therefore the idea was, that these are fulfilled by Survivin binding in according poses to two
