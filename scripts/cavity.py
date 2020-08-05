@@ -50,11 +50,11 @@ def calculate_densities(struct,traj,chain,radius = [6,8,9,10,11,12,13,14,15,16])
 radius = [6,8,9,10,11,12,13,14,15,16]
 
 struct = PDB.PDBFile()
-struct.read("kinase_dimer.pdb")
+struct.read("../md_simulation/kinase_dimer.pdb")
 struct = struct.get_structure()[0]
 
 traj = XTC.XTCFile()
-traj.read("kinase_dimer_nopbc_cluster_fit.xtc")
+traj.read("../md_simulation/kinase_dimer_nopbc_cluster_fit.xtc")
 traj = traj.get_coord()
 
 density_a = calculate_densities(struct,traj,"A",radius)
