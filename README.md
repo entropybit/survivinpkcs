@@ -136,7 +136,7 @@ Afterwards the generated csv files can simply be used for the following steps. T
 To make things easier an already evaluated [dnapkcs_dimersscores.csv](https://github.com/entropybit/survivinpkcs/blob/master/scripts/dnapkcs_dimersscores.csv) as well as a folder contacts containing the distances is uploaded within this repository.
 The [bir_plot.py](https://github.com/entropybit/survivinpkcs/blob/master/scripts/bir_plot.py) script produces three histogram plots for the distance between BIR and PI3K region vs the interface score, one of which is the following
 
-<img src="https://github.com/entropybit/survivinpkcs/blob/master/scripts/hist2d_bir_activesite_large.png" width="800">
+<img src="https://github.com/entropybit/survivinpkcs/blob/master/scripts/hist2d_bir_activesite_large.png" width="500">
 
 
 
