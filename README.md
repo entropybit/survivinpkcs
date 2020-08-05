@@ -135,8 +135,11 @@ For the following scripts we always used a *score.cvs* file instead of *score.sc
 Afterwards the generated csv files can simply be used for the following steps. The first time this is used is withing the [plot_contacts.py](https://github.com/entropybit/survivinpkcs/blob/master/scripts/plot_contacts.py) script, which will generate a lot of plots as side project, although the only thing really necessary before continuing with the [bir_plot.py](https://github.com/entropybit/survivinpkcs/blob/master/scripts/bir_plot.py) script is the generation of the new csv file *scores_extended.csv*. 
 To make things easier an already evaluated [dnapkcs_dimersscores.csv](https://github.com/entropybit/survivinpkcs/blob/master/scripts/dnapkcs_dimersscores.csv) is uploaded within this repository.
 
-### Molecular Dynamics Simulation
+### Running Molecular Dynamics Simulations
 
+Besides the MD simulation for the head structure, three more simulations were performed for this paper. These were based on a collection of bash scripts kindly provided by [@frantropy](https://github.com/frantropy), through which at least a partial automation of the workflow to create and run a MD in gromacs is achieved.
 
+### Evaluationg of Molecular Dynamics Simulations 
 
+Plots for quick evaluation of RMSD, radius of gyration as well as RMSF were created with a python script using biotite ( evaluate.py in the according md_simulations subfolders). For the publication graphs the according data was simply dumped into single csv files per time series and then read in R, in order to make time series plots using ggplot. This is done by the according [R script](https://github.com/entropybit/survivinpkcs/blob/master/scripts/plot_density.R).
 
