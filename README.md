@@ -55,20 +55,23 @@ in the two structures [state1](https://github.com/entropybit/survivinpkcs/blob/m
 is not given anymore. A Molecular Dynamics simuation starting from this structure did not result in a stable simuation instead the two DNA-PKcs - Survivin Monomer complexes seperated. 
 
 To overcome this and also to analyze the importance of the BIR region with a larger sample size, a global docking was performed with Rosetta.
-For this we used the global_docking.sh skript which can simply be executed 
+
+### Protein-Protein Docking with Rosetta
+
+First we perforemd a global docking, which means that a complete uninformed docking is run where several positions of the *ligand* protein on the surface of the *receptor* protein are tried. This was done using our global_docking.sh skript which can simply be executed 
 after making it executable:
 ```
 chmod u+x global_docking.sh
 ./global_docking.sh
 ```
 Within this skript global docking of the survivin dimer with the head domain is executed. 
-Before using it the rosetta paths and target path have to be updated:
+Before using it the Rosetta paths and target path have to be updated:
 ```
 ROSETTA_PATH=/path/to/rosetta
 FOLDER=/path/to/execution/folder
 ```
 
-Furthermore the hostfile needs to be adapted to ones cluster if necessary.
+Furthermore, the hostfile needs to be adapted to ones cluster if necessary.
 In our case the calculation has been evaluated on 16 cores per machine over 3 cluster nodes. 
 In general the hostfile should look like this
 ```
@@ -89,4 +92,4 @@ this task in the repo. So one can simply do
 chmod u+x refinement_docking.sh
 ./refinement_docking.sh
 ```
-This is trivially parallelized over the files using gnu parallel.
+This is trivially parallelized over the files using gnu parallel and the results are stored in the new folder *dimer_refined*.
