@@ -133,7 +133,12 @@ For the following scripts we always used a *score.cvs* file instead of *score.sc
        scores = pd.read_csv(path + "score.sc", delimiter="\s+", header=1)
 ```
 Afterwards the generated csv files can simply be used for the following steps. The first time this is used is withing the [plot_contacts.py](https://github.com/entropybit/survivinpkcs/blob/master/scripts/plot_contacts.py) script, which will generate a lot of plots as side project, although the only thing really necessary before continuing with the [bir_plot.py](https://github.com/entropybit/survivinpkcs/blob/master/scripts/bir_plot.py) script is the generation of the new csv file *scores_extended.csv*. 
-To make things easier an already evaluated [dnapkcs_dimersscores.csv](https://github.com/entropybit/survivinpkcs/blob/master/scripts/dnapkcs_dimersscores.csv) is uploaded within this repository.
+To make things easier an already evaluated [dnapkcs_dimersscores.csv](https://github.com/entropybit/survivinpkcs/blob/master/scripts/dnapkcs_dimersscores.csv) as well as a folder contacts containing the distances is uploaded within this repository.
+The [bir_plot.py](https://github.com/entropybit/survivinpkcs/blob/master/scripts/bir_plot.py) script produces three histogram plots for the distance between BIR and PI3K region vs the interface score, one of which is the following
+
+<img src="https://github.com/entropybit/survivinpkcs/blob/master/scripts/hist2d_bir_activesite_large.png" width="800">
+
+
 
 ### Running Molecular Dynamics Simulations
 
