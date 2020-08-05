@@ -103,6 +103,9 @@ def load_scores(cut_selector, folder="contacts/"):
     d_cutoff = np.inf
 
 
+    ############################################################
+    #
+    # this may need to be changed to reading the score.sc file 
     scores = pd.read_csv("../dnapkcs_dimersscores.csv")
     create_dir("plots") 
 
