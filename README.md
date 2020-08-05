@@ -24,7 +24,7 @@ and [5LUQ](https://www.rcsb.org/structure/5LUQ) for the DNA-PKcs.
 After an initial loop modeling using [Modeller](https://salilab.org/modeller/) a closed structure was found for the
 Kinase and FAT Domain of DNA-PKcs, which we called [head](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/pkcs_head.pdb) structure in the paper. 
 Furthermore, the here used [head](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/pkcs_head.pdb) structure is the result of a 50ns productive run Molecular Dynamics Simulation in gromacs, after initial minimization an equilibration in NVT and NPT ensemble. The scripts for this can be found in the subfolder
-[md_simulations/head_structur](https://github.com/entropybit/survivinpkcs/blob/master/md_simulations/head_structure/).
+[md_simulations/head_structure](https://github.com/entropybit/survivinpkcs/blob/master/md_simulations/head_structure/).
 
 The justification for only using the head structure is as follows: Due to a large gap of missing structural information
 that can not be closed with loop modeling, a complete model of the DNA-PKcs structure is not available. The head structure consists of
@@ -134,6 +134,9 @@ For the following scripts we always used a *score.cvs* file instead of *score.sc
 ```
 Afterwards the generated csv files can simply be used for the following steps. The first time this is used is withing the [plot_contacts.py](https://github.com/entropybit/survivinpkcs/blob/master/scripts/plot_contacts.py) script, which will generate a lot of plots as side project, although the only thing really necessary before continuing with the [bir_plot.py](https://github.com/entropybit/survivinpkcs/blob/master/scripts/bir_plot.py) script is the generation of the new csv file *scores_extended.csv*. 
 To make things easier an already evaluated [dnapkcs_dimersscores.csv](https://github.com/entropybit/survivinpkcs/blob/master/scripts/dnapkcs_dimersscores.csv) is uploaded within this repository.
+
+### Molecular Dynamics Simulation
+
 
 
 
