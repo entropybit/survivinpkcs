@@ -21,13 +21,17 @@ Although it will be explicitly mentioned, which script needs which software.
 ## Modeling step by step.
 The basis for the here documented modeling steps were [1E31](https://www.rcsb.org/structure/1E31) for Survivin
 and [5LUQ](https://www.rcsb.org/structure/5LUQ) for the DNA-PKcs.
-After an initial loop modeling using [Modeller](https://salilab.org/modeller/) a closed structure can be found for the
-Kinase and FAT Domain of DNA-PKcs, which we called [head](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/pkcs_head.pdb) structure in the paper. As the other domains contain a large gap of missing structural information
+After an initial loop modeling using [Modeller](https://salilab.org/modeller/) a closed structure was found for the
+Kinase and FAT Domain of DNA-PKcs, which we called [head](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/pkcs_head.pdb) structure in the paper. 
+Furthermore, the here used [head](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/pkcs_head.pdb) structure is the result of a 50ns productive run Molecular Dynamics Simulation in gromacs, after initial minimization an equilibration in NVT and NPT ensemble. The scripts for this can be found in the subfolder
+[md_simulations/head_structur](https://github.com/entropybit/survivinpkcs/blob/master/md_simulations/head_structure/).
+
+As the other domains contain a large gap of missing structural information
 which can not be closed with loop modeling, only those two Domains were used as model for the DNA-PKcs.
 This was sufficient as investigating the interaction of Survivin with the PI3K region was aim of this work. 
 From perliminary docking with the Schrödinger suite, the best two poses were available, which are stored as [state1](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/state1.pdb) and [state2](https://github.com/entropybit/survivinpkcs/blob/master/pdbs/state2.pdb).
 
-<img src="https://github.com/entropybit/survivinpkcs/blob/master/pdbs/differing_states.png" width="800">
+<img src="https://github.com/entropybit/survivinpkcs/blob/master/pdbs/reworked/differing_states.png" width="800">
 
 
 For these poses, we see very different positions of Survivin relative to its docking partner, as can be seen in the above visualization
