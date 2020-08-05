@@ -143,6 +143,8 @@ The [bir_plot.py](https://github.com/entropybit/survivinpkcs/blob/master/scripts
 ### Running Molecular Dynamics Simulations
 
 Besides the MD simulation for the head structure, three more simulations were performed for this paper. These were based on a collection of bash scripts kindly provided by [@frantropy](https://github.com/frantropy), through which at least a partial automation of the workflow to create and run a MD in gromacs is achieved.
+Teh scripts and configurations used for the accordings MD runs can be found in the subfolders of [md_simulations](https://github.com/entropybit/survivinpkcs/tree/master/md_simulations) were you will find a folder for all three runs as well as the run for the initial head structure. 
+The trajectories are not included as these files are far to large, however links to the trajectories will be added here soon.
 
 ### Evaluationg of Molecular Dynamics Simulations 
 
