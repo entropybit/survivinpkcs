@@ -45,6 +45,7 @@ def distance(traj1, traj2):
     
 if __name__=="__main__":
 
+    
 
     # take first output structure as structure to align to    
     template_dimer = strucio.load_structure(
@@ -100,7 +101,8 @@ if __name__=="__main__":
         trajectory_dimer_ca.chain_id == 'A'    
     )
 
-    contacts_folder="evaluate_contacts/new_contacts/"
+    # modify this accordingly or just create a subfolder contacts
+    contacts_folder= "contacts/"
     residues_selection = list(np.arange(15,88))
 
 
