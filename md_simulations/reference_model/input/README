@@ -1,0 +1,6 @@
+input was : kinase_dimer.pdb (rest if any are remaining from copying this folder
+from previous MD runs)
+
+kinase_dimer_renamed_chains.pdb same structure but wiht renamed chains
+two be consistent with chain ids given in according paper (used for publication)
+

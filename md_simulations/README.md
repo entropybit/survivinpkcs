@@ -31,4 +31,22 @@ Meaning we could also do something like this
 export PATH=/opt/gromacs-2019/bin/GMXRC:$PATH
 ```
 
+## Evaluation
+
+For evaluation of the according MD runs there are two scripts placed in each
+of the MD run folders. First there ist remove_boundary, which is a bash
+script using gmx trjconv to remove the periodic boundary conditions as well as 
+water from the resulting trajectory. Also the structure is fitted with respect
+to rotational and translational degrees of freedom, such that drifts and global 
+rotations of the Molecule are corrected in the resulting trajectory.
+
+Futhermore there is a python script evaluate_new_md.py or evaluate_md.py that
+uses the biotite package for generating basic plots of RMSD, RMSF as well as
+radius of gyration.
+
+As a note: It may be necessary to change gmx to gmx_mpi in the remove_trajectoy 
+scripts, or the other way around. However, this dependends on how
+you gromacs version was compiled and if you want to use the mpi only version or
+not.
+
 
