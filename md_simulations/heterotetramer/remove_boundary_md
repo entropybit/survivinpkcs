@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#export PATH=$PATH:/opt/gromacs-2019/bin/
+#source /usr/local/gromacs/bin/GMXRC
+export PATH=/scratch/gromacs-2020/build/bin:$PATH
+
+NAME=$1
+
+gmx trjconv -s output/$NAME""_md.tpr -f output/$NAME""_md.gro -o output/$NAME""_md_nopbc_cluster.gro -pbc cluster
+gmx trjconv -s output/$NAME""_md.tpr -f output/$NAME""_md_nopbc_cluster.gro -o output/$NAME""_md_nopbc_cluster_fit.gro -fit rot+trans
+
+

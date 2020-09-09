@@ -1,0 +1,44 @@
+source /opt/gromacs-2019/bin/GMXRC
+
+PDB_NAME="heterotetramer.pdb"
+OUT_NAME="heterotetramer"
+
+
+mkdir output
+cp -r input/* output
+cd output
+
+JOBS=10
+
+
+#### PREPERATION ####
+
+gmx_mpi pdb2gmx -f $PDB_NAME -o $OUT_NAME"".gro -p topol.top -ff charmm36-mar2019 -water tip3p -ignh
+gmx_mpi editconf -f $OUT_NAME"".gro -o $OUT_NAME""_boxed.gro -c -d 0.7 -bt dodecahedron
+gmx_mpi solvate -cp $OUT_NAME""_boxed.gro -cs spc216.gro -o $OUT_NAME""_solv.gro -p topol.top
+gmx_mpi grompp -f ions.mdp -c $OUT_NAME""_solv.gro -p topol.top -o ions.tpr -maxwarn 1
+echo "13" | gmx_mpi genion -s ions.tpr -o $OUT_NAME""_ions.gro -p topol.top -pname NA -nname CL -neutral
+
+#### MINIMIZATION ####
+
+gmx_mpi grompp -f min.mdp -c $OUT_NAME""_ions.gro -p topol.top -o em.tpr
+mpiexec --np $JOBS gmx_mpi mdrun -v -deffnm em
+
+
+#### NVT EQUILIBRIATION ###
+
+gmx_mpi grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr
+mpiexec --np $JOBS gmx_mpi mdrun -deffnm nvt -v
+
+#### NPT EQUILIBRIATION ###
+
+gmx_mpi grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o npt.tpr
+mpiexec --np $JOBS gmx_mpi mdrun -deffnm npt -v
+
+#### PRODUCTIVE RUN ####
+
+gmx_mpi grompp -f prod.mdp -c npt.gro -t npt.cpt -p topol.top -o $OUT_NAME""_md.tpr
+mpiexec --np $JOBS gmx_mpi mdrun -deffnm $OUT_NAME""_md -v
+
+
+
